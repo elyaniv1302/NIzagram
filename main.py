@@ -1,4 +1,6 @@
 from classes.Post import Post
+from helpers import mouse_in_button
+from buttons import like_button
 from test_methods import test_comment
 import pygame
 from helpers import screen
@@ -23,19 +25,42 @@ def main():
     post2 = Post("Images/ronaldo.jpg","beer seva", "i love elyaniv ")
 
 
+
     running = True
     while running:
         # Grabs events such as key pressed, mouse pressed and so.
         # Going through all the events that happened in the last clock tick
-        for event in pygame.event.get():
+        for event in pygame.event.get(): # עבור כל אירוע
             if event.type == pygame.QUIT:
+
                 running = False
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                place = event.pos  #המיקום של הלחיצה על העכבר
+
+                if mouse_in_button(like_button,place):
+                    post2.add_like()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         # Display the background, presented Image, likes, comments, tags and
         # location(on the Image)
         screen.fill(BLACK)
         screen.blit(background, (0, 0))
         post2.display()
+
         test_comment()
 
         # Update display - without input update everything
@@ -44,6 +69,7 @@ def main():
         # Set the clock tick to be 60 times per second. 60 frames for second.
         # If we want faster game - increase the parameter.
         clock.tick(60)
+
     pygame.quit()
     quit()
 

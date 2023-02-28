@@ -39,7 +39,7 @@ def mouse_in_button(button, mouse_pos):
     if mouse click on button
     :param button: Button object
         button on screen
-    :param mouse_pos: tuple
+    :param mouse_pos: tuple=רשימה עם סוגררים מרובעות שאי אפשק לשנות
         the x and y position of the mouse cursor
     :return: boolean
         True if mouse click on button, else False
