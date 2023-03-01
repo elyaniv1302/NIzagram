@@ -48,7 +48,7 @@ LIKE_TEXT_Y_POS = 592
 # can be shown on the screen
 # View more comments lines' position on the screen
 VIEW_MORE_COMMENTS_X_POS = 50
-VIEW_MORE_COMMENTS_Y_POS = 765
+VIEW_MORE_COMMENTS_Y_POS = 600
 VIEW_MORE_COMMENT_HEIGHT = 15
 VIEW_MORE_COMMENT_WIDTH = 105
 

@@ -1,10 +1,12 @@
 from classes.Post import Post
-from helpers import mouse_in_button
+from helpers import mouse_in_button,read_comment_from_user,screen
 from buttons import like_button
 from test_methods import test_comment
 import pygame
-from helpers import screen
+from buttons import comment_button
 from constants import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK
+from classes.Comment import Comment
+
 def main():
 
     # Set up the game display, clock and headline
@@ -26,6 +28,8 @@ def main():
 
 
 
+
+
     running = True
     while running:
         # Grabs events such as key pressed, mouse pressed and so.
@@ -37,9 +41,11 @@ def main():
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 place = event.pos  #המיקום של הלחיצה על העכבר
-
                 if mouse_in_button(like_button,place):
                     post2.add_like()
+                if mouse_in_button(comment_button,place):
+                  comment1 = read_comment_from_user()
+                  post2.add_comment(comment1)
 
 
 
@@ -55,13 +61,16 @@ def main():
 
 
 
-        # Display the background, presented Image, likes, comments, tags and
+
+
+
+
+                  # Display the background, presented Image, likes, comments, tags and
         # location(on the Image)
         screen.fill(BLACK)
         screen.blit(background, (0, 0))
         post2.display()
 
-        test_comment()
 
         # Update display - without input update everything
         pygame.display.update()
