@@ -8,7 +8,7 @@ class Post:
     """
     A class used to represent post on Nitzagram
     """
-    def __init__(self, image_src, location, description):
+    def __init__(self, image_src, location, description,):
         self.image_src = image_src
         self.location = location
         self.description = description
@@ -17,7 +17,10 @@ class Post:
         self.image = image
         self.likes_counter = 0
         self.comments = []           #סוגרים מרובעות הופכת את המשתנה לרשימה
-        self.comments_display_index = 0       #זה מספר
+        self.comments_display_index = 0   #זה מספר
+        self.user_name = "elyaniv"
+
+
 
 
 
@@ -50,6 +53,10 @@ class Post:
         text_image = front_image.render(self.description, True, (50,50,50))
         screen.blit(text_image, [DESCRIPTION_TEXT_X_POS,DESCRIPTION_TEXT_Y_POS])
 
+        font = pygame.font.SysFont("ariel", 15)
+        text = font.render(self.user_name, True, (50,50,50))
+        screen.blit(text, [USER_NAME_X_POS, USER_NAME_Y_POS])
+
         pass
     def display_likes(self):
         massage = "Liked by {} users".format(self.likes_counter)
@@ -62,8 +69,9 @@ class Post:
         self.likes_counter += 1
 
     def add_comment(self, comment_text):
-        comment1 = Comment(comment_text )
+        comment1 = Comment(comment_text)
         self.comments.append(comment1)
+
 
 
 
@@ -101,6 +109,7 @@ class Post:
             position_index += 1
             if i >= NUM_OF_COMMENTS_TO_DISPLAY - 1:
                 break
+
 
 
 
